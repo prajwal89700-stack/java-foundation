@@ -12,7 +12,7 @@ public class WalletCalculator {
     }
 
     public static int calculateBonus(int transactions) {
-        int calculateBonus = transactions * 10;
-        return calculateBonus;
+        int calculatedBonus = transactions * 10;
+        return calculatedBonus;
     }
 }
