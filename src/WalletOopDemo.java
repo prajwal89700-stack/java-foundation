@@ -2,9 +2,12 @@ class Wallet {
     String owner;
     long balanceInPaise;
 
+    static int totalWalletsCreated = 0;
+
     Wallet(String owner, long balanceInPaise) {
         this.owner = owner;
         this.balanceInPaise = balanceInPaise;
+        totalWalletsCreated++;// totalWalletsCreated = totalWalletsCreated + 1;
     }
 
     void deposit(long amountInPaise) {
@@ -38,5 +41,10 @@ public class WalletOopDemo {
         System.out.println(w2.owner + " balance: " + w2.balanceInPaise);
         System.out.println("w1 withdraw success: " + r1);
         System.out.println("w2 withdraw success: " + r2);
+        System.out.println("Start count: " + Wallet.totalWalletsCreated);
+        Wallet b1 = new Wallet("Prajwal", 50000L);
+        Wallet b2 = new Wallet("Asha", 20000L);
+        Wallet b3 = new Wallet("Ravi", 10000L);
+        System.out.println("End count: " + Wallet.totalWalletsCreated);
     }
 }
