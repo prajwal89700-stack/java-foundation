@@ -33,6 +33,20 @@ class Wallet {
     }
 }
 
+class CashbackWallet extends Wallet{
+    CashbackWallet(String owner, long balanceInPaise) {
+        super(owner, balanceInPaise);
+    }
+        @Override
+        void deposit(long amountInPaise){
+            if(amountInPaise > 0){
+                long cashback = amountInPaise / 100;
+                super.deposit(amountInPaise + cashback);
+            }
+        }
+    }
+
+
 public class WalletOopDemo {
     public static void main(String[] args) {
 //        Wallet w1 = new Wallet("Prajwal", 50000L);
@@ -53,15 +67,19 @@ public class WalletOopDemo {
 //        Wallet b2 = new Wallet("Asha", 20000L);
 //        Wallet b3 = new Wallet("Ravi", 10000L);
 //        System.out.println("End count: " + Wallet.totalWalletsCreated);
-        Wallet w1 = new Wallet("Prajwal", 50000L);
-        System.out.println("Owner: " + w1.getOwner());
-        System.out.println("Starting Balance: " + w1.getBalanceInPaise());
-
-        w1.deposit(10000L);
-        System.out.println("After deposit: " + w1.getBalanceInPaise());
-
-        boolean success = w1.withdraw(25000L);
-        System.out.println("Withdrawal successful: " + success);
-        System.out.println("Final Balance: " + w1.getBalanceInPaise());
+//        Wallet w1 = new Wallet("Prajwal", 50000L);
+//        System.out.println("Owner: " + w1.getOwner());
+//        System.out.println("Starting Balance: " + w1.getBalanceInPaise());
+//
+//        w1.deposit(10000L);
+//        System.out.println("After deposit: " + w1.getBalanceInPaise());
+//
+//        boolean success = w1.withdraw(25000L);
+//        System.out.println("Withdrawal successful: " + success);
+//        System.out.println("Final Balance: " + w1.getBalanceInPaise());
+    CashbackWallet cw= new CashbackWallet("Prajwal", 50000L);
+    cw.deposit(10000L);
+    System.out.println("Owner: " + cw.getOwner());
+    System.out.println("Final Balance: " + cw.getBalanceInPaise());
     }
 }
