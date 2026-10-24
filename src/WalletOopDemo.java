@@ -25,26 +25,32 @@ class Wallet {
             return false;
         }
     }
-    public String getOwner(){
+
+    public String getOwner() {
         return this.owner;
     }
-    public long getBalanceInPaise(){
+
+    public long getBalanceInPaise() {
         return this.balanceInPaise;
     }
 }
 
-class CashbackWallet extends Wallet{
+class CashbackWallet extends Wallet {
     CashbackWallet(String owner, long balanceInPaise) {
         super(owner, balanceInPaise);
     }
-        @Override
-        void deposit(long amountInPaise){
-            if(amountInPaise > 0){
-                long cashback = amountInPaise / 100;
-                super.deposit(amountInPaise + cashback);
-            }
+
+    public void printCashbackRate(){
+        System.out.println("Cashback rate: 1%" );
+    }
+    @Override
+    void deposit(long amountInPaise) {
+        if (amountInPaise > 0) {
+            long cashback = amountInPaise / 100;
+            super.deposit(amountInPaise + cashback);
         }
     }
+}
 
 
 public class WalletOopDemo {
@@ -77,9 +83,17 @@ public class WalletOopDemo {
 //        boolean success = w1.withdraw(25000L);
 //        System.out.println("Withdrawal successful: " + success);
 //        System.out.println("Final Balance: " + w1.getBalanceInPaise());
-    CashbackWallet cw= new CashbackWallet("Prajwal", 50000L);
-    cw.deposit(10000L);
-    System.out.println("Owner: " + cw.getOwner());
-    System.out.println("Final Balance: " + cw.getBalanceInPaise());
+//        CashbackWallet cw = new CashbackWallet("Prajwal", 50000L);
+//        cw.deposit(10000L);
+//        System.out.println("Owner: " + cw.getOwner());
+//        System.out.println("Final Balance: " + cw.getBalanceInPaise());
+        Wallet w1 = new Wallet("Asha", 50000L);
+        Wallet w2 = new CashbackWallet("Prajwal", 50000L);
+        w1.deposit(10000L);
+        w2.deposit(10000L);
+
+        System.out.println("w1 balance: " + w1.getBalanceInPaise());
+        System.out.println("w2 balance: " + w2.getBalanceInPaise());
+        ((CashbackWallet)w2).printCashbackRate();
     }
 }
