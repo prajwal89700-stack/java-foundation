@@ -40,9 +40,10 @@ class CashbackWallet extends Wallet {
         super(owner, balanceInPaise);
     }
 
-    public void printCashbackRate(){
-        System.out.println("Cashback rate: 1%" );
+    public void printCashbackRate() {
+        System.out.println("Cashback rate: 1%");
     }
+
     @Override
     void deposit(long amountInPaise) {
         if (amountInPaise > 0) {
@@ -94,6 +95,6 @@ public class WalletOopDemo {
 
         System.out.println("w1 balance: " + w1.getBalanceInPaise());
         System.out.println("w2 balance: " + w2.getBalanceInPaise());
-        ((CashbackWallet)w2).printCashbackRate();
+        ((CashbackWallet) w2).printCashbackRate();
     }
 }
