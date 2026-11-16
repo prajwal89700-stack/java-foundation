@@ -8,7 +8,7 @@ public class WalletJdbcDemo {
     public static void main(String[] args) throws SQLException {
         String url = "jdbc:postgresql://localhost:5432/apex_wallet_db";
         String user = "postgres";
-        String password = "162003";
+        String password = "Your_Password";
 
         String sql = "SELECT wallet_id, owner_name, balance_in_paise FROM wallets WHERE owner_name = ?";
 
