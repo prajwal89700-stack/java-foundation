@@ -25,7 +25,6 @@ public class InfosysBirthdayGiftScanner {
             }
             dp = next;
         }
-
         int ans = 0;
         for (int i = 1; i <= n; i++) {
             ans = (ans + dp[i]) % 10000;
